@@ -1,0 +1,13 @@
+package com.example.mutbooks_ebook;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MutbooksEbookApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MutbooksEbookApplication.class, args);
+    }
+
+}

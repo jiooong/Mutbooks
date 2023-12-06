@@ -20,7 +20,7 @@ public class MemberService {
     private final PasswordEncoder passwordEncoder;
     private final MailService mailService;
 
-    public String registerMember(SignupForm signupForm) {
+    public Member registerMember(SignupForm signupForm) {
 //        Member member = Member.builder()
 //                .username(signupForm.getUsername())
 //                .password(signupForm.getPassword())
@@ -32,7 +32,7 @@ public class MemberService {
         member.encodePassword(passwordEncoder.encode(member.getPassword()));
         memberRepository.save(member);
         mailService.sendSimpleEmail(member.getEmail());
-        return "등록완료";
+        return member;
     }
 
 }

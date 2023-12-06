@@ -5,11 +5,13 @@ import com.example.mutbooks_ebook.domain.member.validator.CheckPassword;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @CheckPassword(text1 = "password", text2 = "checkPassword")
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class SignupForm {

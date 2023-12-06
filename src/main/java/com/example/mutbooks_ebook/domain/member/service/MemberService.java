@@ -4,6 +4,7 @@ import com.example.mutbooks_ebook.domain.member.dto.SignupForm;
 import com.example.mutbooks_ebook.domain.member.entity.Member;
 import com.example.mutbooks_ebook.domain.member.repository.MemberRepository;
 import com.example.mutbooks_ebook.domain.member.validator.CheckPassword;
+import com.example.mutbooks_ebook.global.utils.MailService;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Check;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,6 +18,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
+    private final MailService mailService;
 
     public String registerMember(SignupForm signupForm) {
 //        Member member = Member.builder()
@@ -29,6 +31,7 @@ public class MemberService {
         Member member = Member.from(signupForm);
         member.encodePassword(passwordEncoder.encode(member.getPassword()));
         memberRepository.save(member);
+        mailService.sendSimpleEmail(member.getEmail());
         return "등록완료";
     }
 

@@ -43,4 +43,7 @@ public class Member extends Timestamped {
         return member;
     }
 
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 }

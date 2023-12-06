@@ -2,6 +2,7 @@ package com.example.mutbooks_ebook.domain.member.controller;
 
 import com.example.mutbooks_ebook.domain.member.dto.SignupForm;
 import com.example.mutbooks_ebook.domain.member.service.MemberService;
+import com.example.mutbooks_ebook.domain.member.validator.CheckPassword;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
@@ -25,5 +26,4 @@ public class MemberController {
     public String signUp(@Valid @RequestBody SignupForm signupForm){
         return memberService.registerMember(signupForm);
     }
-
 }

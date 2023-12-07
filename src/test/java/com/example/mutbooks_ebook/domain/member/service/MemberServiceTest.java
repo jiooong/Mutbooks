@@ -14,7 +14,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles("test") // 특정 프로파일에 활성화하기 위한 어노테이션
 @Slf4j
 class MemberServiceTest {
 
@@ -46,7 +46,6 @@ class MemberServiceTest {
         assertThat(findMember.getCreatedAt()).isNotNull();
         assertThat(findMember.getModifiedAt()).isNotNull();
         log.info("{}", findMember.getPassword());
-
 
     }
 }

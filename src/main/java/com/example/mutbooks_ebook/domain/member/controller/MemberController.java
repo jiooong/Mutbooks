@@ -6,10 +6,11 @@ import com.example.mutbooks_ebook.domain.member.entity.Member;
 import com.example.mutbooks_ebook.domain.member.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/member")
 public class MemberController {
@@ -30,7 +31,7 @@ public class MemberController {
     }
 
     @PostMapping("/join")
-    public Member signUp(@Valid @RequestBody SignupForm signupForm){
+    public Member signUp(@Valid @ModelAttribute @RequestBody SignupForm signupForm){
         return memberService.registerMember(signupForm);
     }
 }
